@@ -56,28 +56,28 @@ def main():
 		while(cpt != 5):
 			if(taille[cpt] == 1):
 				x1 = -1
-				while( x1 < 0  || x1 > 20):
+				while( x1 < 0  or x1 > 20):
 					x1 = input("Entrez un x de depart: ")
 				y1 = -1
-				while( y1 < 0  || y1 > 20):
+				while( y1 < 0  or y1 > 20):
 					y1 = input("Entrez un y de depart: ")
 				x2 = x1
 				y2 = y1
 			else:
 				print("Entrez un bateau de taille : " + taille[cpt])
 				valide = False
-				while(!valide):
+				while(not(valide)):
 					x1 = -1
-					while( x1 < 0  || x1 > 20):
+					while( x1 < 0  or x1 > 20):
 						x1 = input("Entrez un x de depart: ")
 					y1 = -1
-					while( y1 < 0  || y1 > 20):
+					while( y1 < 0  or y1 > 20):
 						y1 = input("Entrez un y de depart: ")
 					x2 = -1
-					while( x2 < 0  || x2 > 20):
+					while( x2 < 0  or x2 > 20):
 						x2 = input("Entrez un x de fin: ")
 					y2 = -1
-					while( y2 < 0  || y2 > 20):
+					while( y2 < 0  or y2 > 20):
 						y2 = input("Entrez un y de fin: ")
 
 					if(x1 == x2):
@@ -90,7 +90,7 @@ def main():
 	fin = False
 	courant = 0
 	next = 1
-	while(!fin):
+	while(not(fin)):
 		tir = joueurs[courant].tir()
 		retour = joueurs[next].getShot(tir[0], tir[1])
 
