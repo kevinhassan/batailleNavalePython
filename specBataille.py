@@ -19,13 +19,33 @@ def Tests():
 	else :
 		print("SUCCESS : ajoutBateau, j1 n'a pas réussi à placer deux bateaux avec des cases en commun")
 	#Test aPerdu
-	if j1.aPerdu :
+	if j1.aPerdu() :
 		print("ERROR : aPerdu")
 	else :
 		print("SUCCESS : aPerdu")
 	#Test Viser
 	valide = [0,20]
 
+	#Test Position
+	pos1 = Position(1,2)
+	pos2 = Position(100,25)
+	if(pos1.x() == 1 and pos1.y() == 2):
+		print("SUCCESS : La position a était crée")
+	else:
+		print("ERROR : La position est incorrecte")
+	if((pos2.x() >= 0 and pos2.x() <= 20) and  (pos2.y() >= 0 and pos2.y() <= 20)):
+		print("SUCCESS : La position est valide")
+	else:
+		print("ERROR : La position n'est pas valide")
+	if(pos1.estTouche()):
+		print("ERROR : La position ne peut pas être touchee")
+	else:
+		print("SUCCESS : La position est bien non touchee")
+	if(estTouche(pos1.setTouche())):
+		print("SUCCESS : La position est bien touchee")
+	else:
+		print("ERROR : La position devrait être touchee")
+			
 def main():
 	j1 = Joueur()
 	j2 = Joueur()
