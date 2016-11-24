@@ -6,8 +6,7 @@ class Position:
 	"""Constructeur de notre classe Pre-condition : les coordonnées appartiennent a la grille, non occupees."""
 	def __init__(self, x, y): # creer_position : INT x INT -> Position -- Instancie une position en stockant son x et son y avec 0 <= x , y <= 20.
 
-
-	def estTouche(self): # estTouche: Position -> boolean -- Renvoie vrai si la position est touche, false sinon.
+	def estTouche(self): # estTouche: Position -> boolean -- Renvoie true si la position est touche, false sinon.
 
 	def setTouche(self): # setTouche: Position -> -- Marque la position a touche.
 
@@ -19,17 +18,15 @@ class Position:
 
 class Bateau:
 
-
     def __init__(self, posDX, posDY, posFX, posFY): # creer_bateeau : INT x INT x INT x INT -> Bateau -- Instancie un bateau.
         """Constructeur de notre classe
         	Données : posDX = position de depart en x, posDY = position de depart en y, posFX = position d'arrivee en x, posFY = position d'arrivee en y, taille = taille du bateau
-
         	Pre-condition : les coordonnées appartiennent a la grille, non occupees, ne doivent pas representer un bateau en diagonale.
         """
 
 
-    def estCoule(self): # estCoule : Bateau -> boolean -- Renvoie vrai si il est coule, false sinon.
- 	def caseOccupee(self, x, y): # caseOccupee : Bateau x INT x INT -> boolean -- Renvoie vrai si la position definit par x et y en parametre est occupee par le bateau, false sinon.
+    def estCoule(self): # estCoule : Bateau -> boolean -- Renvoie true si il est coule, false sinon.
+ 	def caseOccupee(self, x, y): # caseOccupee : Bateau x INT x INT -> boolean -- Renvoie true si la position definit par x et y en parametre est occupee par le bateau, false sinon.
     def tir(self, x, y): # tir : Bateau x INT x INT -> Int -- Si le tir est sur une position occupee par le bateau et non touche, elle devient touche. Renvoie 0 si le bateau est touche, 1 si il est en vue, 2 si le tir est a l'eau
 
 
@@ -38,10 +35,10 @@ class Joueur:
 
     def __init__(self): # creer_joueur : -> Joueur -- Instancie un joueur.
 
-	def aPerdu(self): # aPerdu : Joueur -> boolean -- Renvoie true si le joueur a perdu (si tous ses bateaux ont coulés), false sinon.
+	def aPerdu(self): # aPerdu : Joueur -> boolean -- Renvoie true si le joueur a perdu (si tous ses bateaux sont coulés), false sinon.
 	def ajoutBateau(self, posDX, posDY, posFX, posFY): # ajoutBateau : Joueur x Bateau -> boolean -- Ajoute un bateau si les cases du nouveau bateau ne sont pas occupe par un bateau deja existant. Renvoie true si succes, false sinon.
 	def viser(self): # tir : Joueur -> INT[2] -- Renvoie un tableau de 2 entier avec 0 <= entier <= 20.
-	def getShot(self, x, y): # Joueur x INT x INT -> Int -- Renvoie 0 un bateau est touche, 1 un bateau est en vue, 2 si le tir est a l'eau.
+	def seFaitTirer(self, x, y): # Joueur x INT x INT -> Int -- Renvoie 0 un bateau est touche, 1 un bateau est en vue, 2 si le tir est a l'eau.
 
 
 
@@ -90,9 +87,12 @@ def main():
 	fin = False
 	courant = 0
 	suivant = 1
+	'''
+		Debut de la partie avec alternance des 2 joueurs
+	'''
 	while(not(fin)):
 		coordonnee = joueurs[courant].viser()
-		retour = joueurs[suivant].getShot(coordonnee[0], coordonnee[1])
+		retour = joueurs[suivant].seFaitTirer(coordonnee[0], coordonnee[1])
 
 		if(retour == 0):
 			print("Touché !")
@@ -102,4 +102,4 @@ def main():
 			print("A l'eau ")
 
 		fin = joueurs[suivant].aPerdu() #On vérifie que le joueur adverse sur lequel on a tiré a perdu
-		courant, suivant = suivant, courant
+		courant, suivant = suivant, courant #On permute les joueurs
