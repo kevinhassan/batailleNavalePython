@@ -8,12 +8,11 @@ import Bateau
 def Tests():
 	#Instantier deux joueurs
 	j1 = Joueur()
-	j2 = Joueur()
 	#Ajout Bateaux
 	if j1.ajoutBateau(0,0,0,5) :
 		print("SUCCESS : ajoutBateau, j1 a placé un bateau")
 	else :
-		print("FAIL : ajoutBateau, j1 n'a pas réussi à placer le bateau")
+		print("ERROR : ajoutBateau, j1 n'a pas réussi à placer le bateau")
 	if j1.ajoutBateau(0,0,5,0) :
 		print("ERROR : ajoutBateau, j1 a placé deux bateaux avec des cases en commun")
 	else :
@@ -25,6 +24,30 @@ def Tests():
 		print("SUCCESS : aPerdu")
 	#Test Viser
 	valide = [0,20]
+	coord = j1.viser()
+	if len(coord) != 2 :
+		print("ERROR: viser, la fonction renvoie plus ou moins de deux coordonnees")
+	elif (coord[0] not in valide) or (coord[1] not in valide) :
+		print("ERROR: viser, la fonction renvoie des coordonnees non valides")
+	else :
+		print("SUCCESS : viser, la fonction renvoie des coordonnees valides")
+	#Test seFaitTirer
+	valide = [0,1,2]
+	if (j1.seFaitTirer(0,0) in valide) and (j1.seFaitTirer(1,0) in valide) and (j1.seFaitTirer(1,20) in valide)  :
+		if j1.seFaitTirer(0,0) == 0 :
+			("SUCCESS: seFaitTirer, bateau touché")
+		else
+			("ERROR: seFaitTirer, le bateau est censé etre touché")
+		if j1.seFaitTirer(1,0) == 1 :
+			("SUCCESS: seFaitTirer, en vue")
+		else
+			("ERROR: seFaitTirer, fonction censé retourner en vue ")
+		if j1.seFaitTirer(1,20) == 2 :
+			("SUCCESS: seFaitTirer, a l'eau")
+		else
+			("ERROR: seFaitTirer, fonction censé retourner en vue")
+	else :
+		print ("ERROR: seFaitTirer, la fonction renvoie un valeur incorrecte")
 
 def main():
 	j1 = Joueur()
