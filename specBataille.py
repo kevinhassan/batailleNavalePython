@@ -1,46 +1,30 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from math import abs
+import Joueur
+import Position
+import Bateau
 
-class Position:
-	"""Constructeur de notre classe Pre-condition : les coordonnées appartiennent a la grille, non occupees."""
-	def __init__(self, x, y): # creer_position : INT x INT -> Position -- Instancie une position en stockant son x et son y avec 0 <= x , y <= 20.
-
-	def estTouche(self): # estTouche: Position -> boolean -- Renvoie true si la position est touche, false sinon.
-
-	def setTouche(self): # setTouche: Position -> -- Marque la position a touche.
-
-	def x(self): # x : Position -> INT -- Renvoie x.
-
-	def y(self): # y : Position -> INT -- Renvoie y.
-
-
-
-class Bateau:
-
-    def __init__(self, posDX, posDY, posFX, posFY): # creer_bateeau : INT x INT x INT x INT -> Bateau -- Instancie un bateau.
-        """Constructeur de notre classe
-        	Données : posDX = position de depart en x, posDY = position de depart en y, posFX = position d'arrivee en x, posFY = position d'arrivee en y, taille = taille du bateau
-        	Pre-condition : les coordonnées appartiennent a la grille, non occupees, ne doivent pas representer un bateau en diagonale.
-        """
-
-
-    def estCoule(self): # estCoule : Bateau -> boolean -- Renvoie true si il est coule, false sinon.
- 	def caseOccupee(self, x, y): # caseOccupee : Bateau x INT x INT -> boolean -- Renvoie true si la position definit par x et y en parametre est occupee par le bateau, false sinon.
-    def tir(self, x, y): # tir : Bateau x INT x INT -> Int -- Si le tir est sur une position occupee par le bateau et non touche, elle devient touche. Renvoie 0 si le bateau est touche, 1 si il est en vue, 2 si le tir est a l'eau
-
-
-
-class Joueur:
-
-    def __init__(self): # creer_joueur : -> Joueur -- Instancie un joueur.
-
-	def aPerdu(self): # aPerdu : Joueur -> boolean -- Renvoie true si le joueur a perdu (si tous ses bateaux sont coulés), false sinon.
-	def ajoutBateau(self, posDX, posDY, posFX, posFY): # ajoutBateau : Joueur x Bateau -> boolean -- Ajoute un bateau si les cases du nouveau bateau ne sont pas occupe par un bateau deja existant. Renvoie true si succes, false sinon.
-	def viser(self): # tir : Joueur -> INT[2] -- Renvoie un tableau de 2 entier avec 0 <= entier <= 20.
-	def seFaitTirer(self, x, y): # Joueur x INT x INT -> Int -- Renvoie 0 un bateau est touche, 1 un bateau est en vue, 2 si le tir est a l'eau.
-
-
+def Tests():
+	#Instantier deux joueurs
+	j1 = Joueur()
+	j2 = Joueur()
+	#Ajout Bateaux
+	if j1.ajoutBateau(0,0,0,5) :
+		print("SUCCESS : ajoutBateau, j1 a placé un bateau")
+	else :
+		print("FAIL : ajoutBateau, j1 n'a pas réussi à placer le bateau")
+	if j1.ajoutBateau(0,0,5,0) :
+		print("ERROR : ajoutBateau, j1 a placé deux bateaux avec des cases en commun")
+	else :
+		print("SUCCESS : ajoutBateau, j1 n'a pas réussi à placer deux bateaux avec des cases en commun")
+	#Test aPerdu
+	if j1.aPerdu :
+		print("ERROR : aPerdu")
+	else :
+		print("SUCCESS : aPerdu")
+	#Test Viser
+	valide = [0,20]
 
 def main():
 	j1 = Joueur()
