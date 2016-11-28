@@ -91,7 +91,10 @@ def main():
 					y1 = int(input("Entrez un y de depart: "))
 				x2 = x1
 				y2 = y1
-				k = k + 1
+				b = Bateau(x1,y1,x2,y2)
+				valideAjoutBateau = joueurs[i].ajoutBateau(b)
+				if(valideAjoutBateau):
+					k = k + 1
 			else:
 				print("Entrez un bateau de taille : " + str(tailles[k]))
 				valideAjoutBateau = False
@@ -107,13 +110,15 @@ def main():
 						y2 = int(input("Entrez un y de fin: "))
 
 					if (x1 == x2 and (abs(y1 - y2) + 1) == tailles[k]):  # Verifier que les coordonnees rentrees sont coherentes avec la taille souhaite
-						valideAjoutBateau = joueurs[i].ajoutBateau(x1, y1, x2, y2)  # si la position n'est pas occupée valideAjoutBateau = true
+						b = Bateau(x1,y1,x2,y2)
+						valideAjoutBateau = joueurs[i].ajoutBateau(b)  # si la position n'est pas occupée valideAjoutBateau = true
 						if (valideAjoutBateau):  # Si l'ajout est reussie on passe au bateau suivant à placer
 							k = k + 1
 						else:
 							print("La case est déjà occupée par un autre bateau")
 					elif (y1 == y2 and (abs(x1 - x2) + 1) == tailles[k]):
-						valideAjoutBateau = joueurs[i].ajoutBateau(x1, y1, x2, y2)  # si la position n'est pas occupée valideAjoutBateau = true
+						b = Bateau(x1,y1,x2,y2)
+						valideAjoutBateau = joueurs[i].ajoutBateau(b)  # si la position n'est pas occupée valideAjoutBateau = true
 						if (valideAjoutBateau):  # Si l'ajout est reussie on passe au bateau suivant à placer
 							k = k + 1
 						else:
@@ -131,8 +136,7 @@ def main():
 		Debut de la partie avec alternance des 2 joueurs
 	'''
 	while (not (estFini)):
-		#coordonnee = joueurs[courant].viser()
-		coordonnee = [1,2]
+		coordonnee = joueurs[courant].viser()
 		retour = joueurs[suivant].seFaitTirer(coordonnee[0], coordonnee[1])
 
 		if (retour == 0):

@@ -1,14 +1,29 @@
 class Bateau:
-
-    def __init__(self, posDX, posDY, posFX, posFY): # creer_bateeau : INT x INT x INT x INT -> Bateau -- Instancie un bateau.
-        """Constructeur de notre classe
-        	Données : posDX = position de depart en x, posDY = position de depart en y, posFX = position d'arrivee en x, posFY = position d'arrivee en y
-        	Pre-condition : les coordonnées appartiennent a la grille, non occupees, ne doivent pas representer un bateau en diagonale.
-        """
-    def estCoule(self):# estCoule : Bateau -> boolean -- Renvoie true si toute les positions du bateau sont touchees
+    """
+        Données: posDx position de départ du bateau en x et posDY position de départ du bateau en y
+                 posFx position finale du bateau en x et posFY position finale du bateau en y
+        Pre: Les coordonnées ne représentent pas un bateau en diagonale et respectent la taille fixée
+        Post: Les positions du bateau sont toutes non touchées
+    	Resultat: Instancie un bateau
+    """
+    def __init__(self, posDX, posDY, posFX, posFY): # creer_bateeau : Int x Int x Int x Int  -> Bateau
         return
-    def caseOccupee(self, x, y):# caseOccupee : Bateau x INT x INT -> boolean -- Renvoie true si la position definit par x et y en parametre est occupee par le bateau, false sinon.
+    """
+    	Resultat: Renvoie True si TOUTES les positions du bateau ont été touchées sinon False
+    """
+    def estCoule(self):# estCoule : Bateau -> boolean
         return
-    def tir(self, x, y):# tir : Bateau x INT x INT -> Int -- Si le tir est sur une position occupee par le bateau et non touche, elle devient touche. Renvoie 0 si le bateau est touche, 1 si il est en vue, 2 si le tir est a l'eau
+    """
+    	Resultat: Renvoie True si la position definie par x et y en parametre est occupée par le bateau, False sinon.
+    """
+    def caseOccupee(self, x, y):# caseOccupee : Bateau x Int x Int -> boolean
+        return
+    """
+    	Resultat: - La position visée devient touchée si elle était occupée par un bateau mais jamais touchée auparavant
+    	          - Renvoie 0 si le bateau est touche
+    	          - Renvoie 1 si il est en vue
+    	          - Renvoie 2 si le tir est a l'eau
+    """
+    def tir(self, x, y):# tir : Bateau x Int x Int -> Int
         return
     

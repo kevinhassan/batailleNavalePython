@@ -1,12 +1,29 @@
 class Position:
-	"""Constructeur de notre classe Pre-condition : les coordonnées appartiennent a la grille, non occupees."""
-	def __init__(self, x, y): # creer_position : INT x INT -> Position -- Instancie une position en stockant son x et son y avec 0 <= x , y <= 20.
+	"""
+		Données: x et y des entiers
+		Pre: Les coordonnées x et y entiers appartenant à la grille [0,20] et non occupées
+		Resultat: Instancie une position
+	"""
+	def __init__(self, x, y): # creer_position : INT x INT -> Position
 		return
-	def estTouche(self): # estTouche: Position -> boolean -- Renvoie true si la position est touche, false sinon.
+	"""
+		Resultat: Renvoie True si la position est touche sinon False
+	"""
+	def estTouche(self): # estTouche: Position -> boolean
 		return
-	def setTouche(self): # setTouche: Position -> -- Marque la position a touche.
+	"""
+		Pre: La position n'a jamais était touchée auparavant
+		Resultat: Marquer la position a touchée
+	"""
+	def setTouche(self): # setTouche: Position -> -- Marque la position a touche
 		return
-	def x(self): # x : Position -> INT -- Renvoie x.
+	"""
+		Resultat: Renvoie un entier x
+	"""
+	def x(self): # x : Position -> INT
 		return
-	def y(self): # y : Position -> INT -- Renvoie y.
+	"""
+		Resultat: Renvoie un entier y
+	"""
+	def y(self): # y : Position -> INT
 		return
