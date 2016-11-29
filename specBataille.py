@@ -7,32 +7,60 @@ from Bateau import *
 
 
 def Tests():
+	#Instancier deux bateaux
+	B1 = Bateau(0, 0, 0, 5)
+	B2 = Bateau(0, 0, 5, 0)
+	#Test estCoule
+	if B1.estCoule() or B2.estCoule() :
+		print("ERROR : estCoule, les deux bateaux ne peuvent pas étre coulé")
+	else :
+		print("SUCCESS : estCoule, création de deux bateaux avec réussite")
+	#Test caseOccupee
+	if not B1.caseOccupee(0,0) :
+		print("ERROR : caseOccupee, la case (0,0) doit etre occupé par B1")
+	else :
+		print("SUCCESS : caseOccupee, la case (0,0) est bien occupé par B1")
+	#Test tir
+	valide = [0, 1, 2]
+	if (B1.tir(0, 0) in valide) and (B1.tir(1, 0) in valide) and (B1.tir(1, 20) in valide):
+		if B1.tir(0, 0) == 0:
+			("SUCCESS: tir, bateau touché")
+		else:
+			("ERROR: tir, le bateau est censé etre touché")
+		if B1.tir(1, 0) == 1:
+			("SUCCESS: tir, en vue")
+		else:
+			("ERROR: tir, fonction censé retourner en vue ")
+		if B1.tir(1, 20) == 2:
+			("SUCCESS: tir, a l'eau")
+		else:
+			("ERROR: tir, fonction censé retourner en vue")
+	else:
+		print("ERROR: tir, la fonction renvoie un valeur incorrecte")
+
 	# Instantier deux joueurs
 	j1 = Joueur()
 	# Ajout Bateaux
-	if j1.ajoutBateau(0, 0, 0, 5):
-		print("SUCCESS : ajoutBateau, j1 a placé un bateau")
+	if j1.ajoutBateau(B1):
+		print("SUCCESS : ajoutBateau, j1 a reussie à placer un bateau")
 	else:
-		print("ERROR : ajoutBateau, j1 n'a pas réussi à placer le bateau")
-	if j1.ajoutBateau(0, 0, 5, 0):
-		print("ERROR : ajoutBateau, j1 a placé deux bateaux avec des cases en commun")
+		print("ERROR : ajoutBateau, n'a pas reussie à ajouter le bateau")
+	if j1.ajoutBateau(B2):
+		print("ERROR : ajoutBateau, j1 ne peut pas placer ce bateau")
 	else:
-		print("SUCCESS : ajoutBateau, j1 n'a pas réussi à placer deux bateaux avec des cases en commun")
-	# Test aPerdu
+		print("SUCCESS : ajoutBateau, n'a pas ajouté car case déjà occupée")
+
 	if j1.aPerdu():
 		print("ERROR : aPerdu")
 	else:
 		print("SUCCESS : aPerdu")
+
 	# Test Viser
 	valide = [0, 20]
 	coord = j1.viser()
 	if len(coord) != 2:
 		print("ERROR: viser, la fonction renvoie plus ou moins de deux coordonnees")
-	elif (coord[0] not in valide) or (coord[1] not in valide):
-		print("ERROR: viser, la fonction renvoie des coordonnees non valides")
-	else:
-		print("SUCCESS : viser, la fonction renvoie des coordonnees valides")
-	# Test seFaitTirer
+	elif (coord[0] not in valide) or (coord[1] not in valide) :
 	valide = [0, 1, 2]
 	if (j1.seFaitTirer(0, 0) in valide) and (j1.seFaitTirer(1, 0) in valide) and (j1.seFaitTirer(1, 20) in valide):
 		if j1.seFaitTirer(0, 0) == 0:
@@ -60,7 +88,11 @@ def Tests():
 	if ((pos2.x() >= 0 and pos2.x() <= 20) and (pos2.y() >= 0 and pos2.y() <= 20)):
 		print("SUCCESS : La position est valide")
 	else:
-		print("ERROR : La position n'est pas valide")
+		x1 = int(input("Entrez un x de depart: "))
+		while (y1 < 0 or y1 > 20):
+			y1 = int(input("Entrez un y de depart: "))
+			x2 = x1
+			print("ERROR : La position n'est pas valide")
 	if (pos1.estTouche()):
 		print("ERROR : La position ne peut pas être touchee")
 	else:
@@ -82,10 +114,7 @@ def main():
 		Saisie des bateaux pour les 2 joueurs
 	'''
 	x1, y1, x2, y2 = -1, -1, -1, -1
-	for i in range(0, 2):  # Alterner du joueur 1 au joueur2
-		while (k != 5):
-			if (tailles[k] == 1):  # Si la taille est de 1 on saisie une seule coordonnee
-				while (x1 < 0 or x1 > 20):
+	for i in range(0, 2):  # Alterner du joueu
 					x1 = int(input("Entrez un x de depart: "))
 				while (y1 < 0 or y1 > 20):
 					y1 = int(input("Entrez un y de depart: "))
