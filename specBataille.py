@@ -16,9 +16,9 @@ def main():
 	'''
 		Saisie des bateaux pour les 2 joueurs
 	'''
-	x1, y1, x2, y2 = -1, -1, -1, -1
 	for i in range(0, 2):  # Alterner du joueur 1 au joueur2
 		while (k != 5):
+			x1, y1, x2, y2 = -1, -1, -1, -1
 			if (tailles[k] == 1):  # Si la taille est de 1 on saisie une seule coordonnee
 				while (x1 < 0 or x1 > 20):
 					x1 = int(input("Entrez un x de depart: "))
@@ -83,3 +83,5 @@ def main():
 
 		estFini = joueurs[suivant].aPerdu()  # On vérifie que le joueur adverse sur lequel on a tiré a perdu
 		courant, suivant = suivant, courant  # On permute les joueurs
+
+main()
