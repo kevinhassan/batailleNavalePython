@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 class Position:
 	"""
 		Données: x et y des entiers
 		Pre: Les coordonnées x et y entiers appartenant à la grille [0,20] et non occupées
-		Resultat: Instancie une position
+		Resultat: Instancie une position non touchée
 	"""
 	def __init__(self, x, y): # creer_position : INT x INT -> Position
 		return
@@ -27,3 +28,10 @@ class Position:
 	"""
 	def y(self): # y : Position -> INT
 		return
+
+"""
+	Propriétés :
+	============
+
+	- 
+"""

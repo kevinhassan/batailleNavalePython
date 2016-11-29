@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 class Bateau:
     """
-        Données: posDx position de départ du bateau en x et posDY position de départ du bateau en y
-                 posFx position finale du bateau en x et posFY position finale du bateau en y
+        Données: posDx position de départ du bateau en x (compris) et posDY position de départ du bateau en y (compris)
+                 posFx position finale du bateau en x (compris) et posFY position finale du bateau en y (compris) 
         Pre: Les coordonnées ne représentent pas un bateau en diagonale et respectent la taille fixée
         Post: Les positions du bateau sont toutes non touchées
-    	Resultat: Instancie un bateau
+    	Resultat: Instancie un bateau non coulé
     """
     def __init__(self, posDX, posDY, posFX, posFY): # creer_bateeau : Int x Int x Int x Int  -> Bateau
         return
@@ -26,4 +27,3 @@ class Bateau:
     """
     def tir(self, x, y):# tir : Bateau x Int x Int -> Int
         return
-    

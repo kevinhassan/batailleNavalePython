@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 class Joueur:
     """
-    	Resultat: Instancie un joueur
+    	Resultat: Instancie un joueur qui n'a pas de bateau et qui n'a pas encore perdu
     """
     def __init__(self): # creer_joueur : -> Joueur
         return
@@ -15,13 +16,13 @@ class Joueur:
     """
         Pre: Le bateau appartient à la grille et il est soit horizontale soit verticale
         Post: Ajoute un bateau qui n'est pas déjà existant dans la grille du joueur
-    	Resultat: Renvoie True si succès sinon False (dans le cas ou un bateau était déjà en position)
+    	Resultat: Renvoie True si succès sinon False (avec au moins une case occupée par un autre bateau)
     """
     def ajoutBateau(self, bateau): # ajoutBateau : Joueur x Bateau -> boolean
         return
 
     """
-        Resultat: renvoyer les coordonnées visées saisies par l'utilisateur et appartenant à la grille [0,20]
+        Resultat: demande la saisie par l'utilisateur de coordonnée tant que les coordonnées saisies ne sont pas dans la grille [0,20]
     """
     def viser(self): # tir : Joueur -> INT[2]
         return
