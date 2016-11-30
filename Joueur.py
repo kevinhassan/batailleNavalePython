@@ -36,3 +36,14 @@ class Joueur:
     """
     def seFaitTirer(self, x, y): # Joueur x INT x INT -> Int
         return
+
+"""
+--------------------------------PROPRIETES--------------------------------------
+    - P1: aPerdu(Joueur()) == False
+    - P2: Joueur.viser() == (Int[0]>=0 and Int[0]<=20 and (Int[1]>=0 and Int[1]<=20)
+    - P3: Joueur.ajoutBateau(Bateau(posDX, posDY, posFX, posFY)) == True
+    - P4: Joueur.seFaitTirer(posDX, posDY) == 0  --> Touché
+    - P5: Joueur.seFaitTirer(posDX, posDY+1) == 1  --> En vue
+    - P6: Joueur.seFaitTirer(posDX+1, posDY+1) == 2  --> A l'eau
+--------------------------------------------------------------------------------
+"""

@@ -2,7 +2,7 @@
 class Bateau:
     """
         Données: posDx position de départ du bateau en x (compris) et posDY position de départ du bateau en y (compris)
-                 posFx position finale du bateau en x (compris) et posFY position finale du bateau en y (compris) 
+                 posFx position finale du bateau en x (compris) et posFY position finale du bateau en y (compris)
         Pre: Les coordonnées ne représentent pas un bateau en diagonale et respectent la taille fixée
         Post: Les positions du bateau sont toutes non touchées
     	Resultat: Instancie un bateau non coulé
@@ -27,3 +27,14 @@ class Bateau:
     """
     def tir(self, x, y):# tir : Bateau x Int x Int -> Int
         return
+
+
+"""
+--------------------------------PROPRIETES--------------------------------------
+    - P1: estCoule(Bateau(posDX, posDY, posFX, posFY),posDX, posDY)) == False
+    - P2: caseOccupee(Bateau(posDX, posDY, posFX, posFY),posDX, posDY) == True
+    - P3: tir(Bateau(posDX, posDY, posFX, posFY), posDX, posDY) == 0  --> Touché
+    - P4: tir(Bateau(posDX, posDY, posFX, posFY), posDX, posDY-1) == 1  --> En vue
+    - P5: tir(Bateau(posDX, posDY, posFX, posFY), posDX-1, posDY-1) == 2  --> A l'eau
+--------------------------------------------------------------------------------
+"""

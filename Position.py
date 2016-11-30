@@ -30,8 +30,10 @@ class Position:
 		return
 
 """
-	Propriétés :
-	============
-
-	- 
+--------------------------------PROPRIETES--------------------------------------
+    - P1: estTouche(Position(x,y)) == False
+    - P2: estTouche(setTouche(Position(x,y))) == True
+    - P3: x(Position(x,y)) == x
+    - P4: y(Position(x,y)) == y
+--------------------------------------------------------------------------------
 """

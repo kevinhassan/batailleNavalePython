@@ -19,12 +19,6 @@ def testAjoutBateau(j1,B1):
     return j1.ajoutBateau(B1)
 
 """
-SUCCESS : La joueur est bien touchee
-ERROR : La joueur devrait être touchee
-"""
-def testSetTouche(j1):
-    return j1.estTouche()
-"""
 ERROR : aPerdu
 SUCCESS : aPerdu
 """
