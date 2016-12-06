@@ -2,7 +2,6 @@
 #authors : Thais Aurard, Maxime Soustelle
 
 class Joueur:
-	__Bateaux = []
 	def bateaux(self):
 		return self.__Bateaux
 	#			Joueur --> [Bateau](5)
