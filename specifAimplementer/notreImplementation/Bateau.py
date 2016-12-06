@@ -8,10 +8,19 @@ class Bateau:
     #Remarque : creerBateau c'est le constructeur de bateaux donc on doit change son nom à __init__
 	#			int x str x int x int --> Bateau
     def __init__(self,  longueur, orientation, coordX, coordY):
-        self.longueur = longueur
-        self.orientation = orientation
-        self.coordX = coordX
-        self.coordY = coordY
+        if longeur<=5 :
+            self.longueur = longueur
+        else :
+            return "erreur"
+        if orientation=="verticale" or orientation=="horizentale" :
+            self.orientation = orientation
+        else :
+            return "erreur"
+        if 0<=coordX and coordX<=20 and 0<=coordY and coordY<=20 :
+            self.coordX = coordX
+            self.coordY = coordY
+        else:
+            return "erreur"
         self.positions = []
         if orientation == "verticale" :
             for i in range(0,longueur) :
