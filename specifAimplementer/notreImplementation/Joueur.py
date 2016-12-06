@@ -1,4 +1,5 @@
 #! /usr/bin/python
+# -*- coding: utf-8 -*-
 #authors : Thais Aurard, Maxime Soustelle
 
 class Joueur:

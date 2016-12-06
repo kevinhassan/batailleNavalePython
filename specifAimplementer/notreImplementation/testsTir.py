@@ -20,3 +20,6 @@ def testsTir():
 	assert((resultatTir(tir) == "en vue") and (verifierEnVue(tir) == True)), "erreur_resultatTir"
 	assert(creerTir(-2,3,joueur1) == "erreur"), "erreur_resultatTir"
 	assert(creerTir(5,21,joueur1) == "erreur"), "erreur_resultatTir"
+
+
+testsTir()

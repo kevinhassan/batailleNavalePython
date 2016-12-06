@@ -1,8 +1,9 @@
 #! /usr/bin/python
+# -*- coding: utf-8 -*-
 #authors : Thais Aurard, Maxime Soustelle
-import Bateau
-import Joueur
-import Tir
+from Joueur import *
+from Tir import *
+from Bateau import *
 
 #Programme principal
 
@@ -10,7 +11,7 @@ def entrerBateau(longueur):
 	x = input("entrer coordonnee X de debut ")
 	y = input("entrer coordonnee Y de debut ")
 	orientation = raw_input("entrer l orientation du bateau: 'verticale' ou 'horizontale' ")
-	b = creerBateau(longueur, orientation, x, y)
+	b = Bateau(longueur, orientation, x, y)
 	return b
 
 

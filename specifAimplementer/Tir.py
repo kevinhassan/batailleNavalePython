@@ -4,10 +4,38 @@ import Joueur
 
 #Fonctions
 class Tir:
-
-	def resultatTir(self):return  
+    def __init__(coordA, coordB, joueur):
+        #			int x int x Joueur --> Tir
+        self.coordA = coordA
+        self.coordB = coordB
+        self.joueur = joueur
+        
+	def resultatTir(self):
 	#			Tir --> str
-	def verifierEnVue(self):return 
+        return
+        
+        
+	def verifierEnVue(self):
 	#			Tir --> bool
-	def creerTir(coordA, coordB, joueur): return 
+        for i in range(0,len(self.joueur.bateaux())) :
+            for l in range(0,len(self.joueur.bateaux()[i].positionsBateau())) :
+                if(self.joueur.bateaux()[i].positionsBateau()[l][0] == coordA and self.joueur.bateaux()[i].positionsBateau()[l][1] == coordB and (not self.joueur.bateaux()[i].etatPosition()[l])) :
+                    self.joueur.bateaux()[i].etatPosition()[l] = True
+                    isDead = True
+                    for a in range(0,len(self.joueur.bateaux()[i].etatPosition())) :
+                        if((not self.joueur.bateaux()[i].etatPosition()[a])):
+                            isDead = False
+                    if(isDead):
+                        #coule
+                    else:
+                        #Touche
+                elif(self.joueur.bateaux()[i].positionsBateau()[l][0] == coordA or self.joueur.bateaux()[i].positionsBateau()[l][1] == coordB) :
+                    #En vue
+                else :
+                    #A l'eau
+        return
+        
+        
+	def creerTir(coordA, coordB, joueur):
 	#			int x int x Joueur --> Tir
+        return

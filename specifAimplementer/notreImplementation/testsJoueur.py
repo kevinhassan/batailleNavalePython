@@ -17,3 +17,6 @@ def testsJoueur():
 	assert(nbBateauxRestants(joueur1)<=5), "erreur_nbBateauxRestants"
 	assert(creerJoueur([b1,b2]) == "erreur"), "erreur_creerJoueur"
 	assert(creerJoueur([b1,b2,b3,b4,b5,b6,b7]) == "erreur"), "erreur_creerJoueur"
+
+
+testsJoueur()
