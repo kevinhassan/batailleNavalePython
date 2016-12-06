@@ -1,6 +1,8 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 #authors : Thais Aurard, Maxime Soustelle
+from Bateau import *
+
 
 class Joueur:
 	def bateaux(self):
@@ -13,6 +15,6 @@ class Joueur:
 
 
 	#Remarques : - Créer Joueur est un constructeur ->
-	def __init__(tabB):
+	def __init__(self, tabB):
 	#			[Bateau](5) --> Joueur
 		self.__Bateaux = tabB
