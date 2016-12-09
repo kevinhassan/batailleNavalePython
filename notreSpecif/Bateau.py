@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from Position import *
+
 class Bateau:
     """
         Données: posDx position de départ du bateau en x (compris) et posDY position de départ du bateau en y (compris)

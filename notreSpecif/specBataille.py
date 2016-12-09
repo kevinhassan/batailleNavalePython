@@ -4,7 +4,6 @@ from math import *
 from Joueur import *
 from Position import *
 from Bateau import *
-from Tests import *
 
 def main():
 	j1 = Joueur()

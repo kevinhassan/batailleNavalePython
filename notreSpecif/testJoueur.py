@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from Joueur import *
-from Bateau import *
 
 """
 SUCCESS : Le Joueur a était crée

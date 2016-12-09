@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from Bateau import *
+
 class Joueur:
     """
     	Resultat: Instancie un joueur qui n'a pas de bateau et qui n'a pas encore perdu
