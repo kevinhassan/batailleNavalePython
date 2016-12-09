@@ -9,12 +9,12 @@ class Bateau:
 	#			int x str x int x int --> Bateau
     def __init__(self,  longueur, orientation, coordX, coordY):
         #verification de Longeur
-        if longeur>=1 and longueur<=4 :
+        if longueur>=1 and longueur<=4 :
             self.longueur = longueur
         else :
             return "erreur"
         #verification de l'orientation
-        if orientation=="verticale" or orientation=="horizentale" :
+        if orientation=="verticale" or orientation=="horizontale" :
             self.orientation = orientation
         else :
             return "erreur"
