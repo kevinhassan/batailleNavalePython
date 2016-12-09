@@ -24,14 +24,9 @@ class Joueur:
         return
 
     """
-        Resultat: demande la saisie par l'utilisateur de coordonnée tant que les coordonnées saisies ne sont pas dans la grille [0,20]
-    """
-    def viser(self): # tir : Joueur -> INT[2]
-        return
-
-    """
         Données: Int x, Int y
         Pre: x,y appartient à [0,20]
+        Cette fonction utilise la fonction tir(x,y) de Bateau, sur tout les bateaux.
         Resultat: - renvoie 0 si le bateau est touché
                   - renvoie 1 si le bateau est en vue
                   - renvoie 2 si à l'eau

@@ -20,9 +20,9 @@ def main():
 			x1, y1, x2, y2 = -1, -1, -1, -1
 			if (tailles[k] == 1):  # Si la taille est de 1 on saisie une seule coordonnee
 				while (x1 < 0 or x1 > 20):
-					x1 = int(input("Entrez un x de depart: "))
+					x1 = int(input("Entrez un x de depart pour bateau de taille "+ str(tailles[k]) +" : "))
 				while (y1 < 0 or y1 > 20):
-					y1 = int(input("Entrez un y de depart: "))
+					y1 = int(input("Entrez un y de depart pour bateau de taille "+ str(tailles[k]) +": "))
 				x2 = x1
 				y2 = y1
 				b = Bateau(x1,y1,x2,y2)
@@ -35,13 +35,13 @@ def main():
 				while (not (valideAjoutBateau)):
 					x1, y1, x2, y2 = -1, -1, -1, -1
 					while (x1 < 0 or x1 > 20):
-						x1 = int(input("Entrez un x de depart: "))
+						x1 = int(input("Entrez un x de depart pour bateau de taille "+ str(tailles[k]) +": "))
 					while (y1 < 0 or y1 > 20):
-						y1 = int(input("Entrez un y de depart: "))
+						y1 = int(input("Entrez un y de depart pour bateau de taille "+ str(tailles[k]) +": "))
 					while (x2 < 0 or x2 > 20):
-						x2 = int(input("Entrez un x de fin: "))
+						x2 = int(input("Entrez un x de fin pour bateau de taille "+ str(tailles[k]) +": "))
 					while (y2 < 0 or y2 > 20):
-						y2 = int(input("Entrez un y de fin: "))
+						y2 = int(input("Entrez un y de fin pour bateau de taille "+ str(tailles[k]) +": "))
 
 					if (x1 == x2 and (abs(y1 - y2) + 1) == tailles[k]):  # Verifier que les coordonnees rentrees sont coherentes avec la taille souhaite
 						b = Bateau(x1,y1,x2,y2)
@@ -70,7 +70,7 @@ def main():
 		Debut de la partie avec alternance des 2 joueurs
 	'''
 	while (not (estFini)):
-		coordonnee = joueurs[courant].viser()
+		coordonnee = viser()
 		retour = joueurs[suivant].seFaitTirer(coordonnee[0], coordonnee[1])
 
 		if (retour == 0):
@@ -83,4 +83,12 @@ def main():
 		estFini = joueurs[suivant].aPerdu()  # On vérifie que le joueur adverse sur lequel on a tiré a perdu
 		courant, suivant = suivant, courant  # On permute les joueurs
 
+def viser():
+	x1, y1= -1, -1
+	while (x1 < 0 or x1 > 20):
+		x1 = int(input("Entrez un x a visé: "))
+	while (y1 < 0 or y1 > 20):
+		y1 = int(input("Entrez un y a visé: "))
+		return [x1,y1]
+print(viser()[0])
 main()
