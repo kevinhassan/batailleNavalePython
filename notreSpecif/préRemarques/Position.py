@@ -21,12 +21,12 @@ class Position:
 	"""
 		Resultat: Renvoie un entier x
 	"""
-	def x(self): # x : Position -> INT -- Renvoie le x de la position
+	def x(self): # x : Position -> INT
 		return
 	"""
 		Resultat: Renvoie un entier y
 	"""
-	def y(self): # y : Position -> INT -- Renvoie le y de la position
+	def y(self): # y : Position -> INT
 		return
 
 """
