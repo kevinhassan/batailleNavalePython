@@ -5,6 +5,7 @@ from Joueur import *
 from Tir import *
 from Bateau import *
 from GraphicLibrary import *
+import time
 
 #Programme principal
 
@@ -34,6 +35,7 @@ def main():
 	#Placement des bateaux (la fonction creerBateau est appelee a l interieur de entrerBateau avec les informations entrees par l utilisateur)
 	valider = "n"
 	while valider == "n" :
+		nettoyer()
 		print("Joueur 1")
 		S1 = getEmptyGrid()
 		afficher(S1)
@@ -106,25 +108,38 @@ def main():
 	x = int(0)
 	y = int(0)
 
+	G1 = getEmptyGrid()
+	G2 = getEmptyGrid()
+	G = [G1,G2]
+
 	#Boucle de jeu
 	while (j1.nbBateauxRestants() != 0) and (j2.nbBateauxRestants() != 0):
+		 nettoyer()
 		 print("Joueur" + str(tour + 1 ) +" "+ " choisit une position de tir")
+		 afficher(G[tour-1])
 		 x = input("Coordonnee x : ")
 		 y = input("Coordonnee y : ")
 		 if tour == 1:
 		 	tir = Tir(x,y,j1)
 		 else:
 		 	tir = Tir(x,y,j2)
+		 if tir.resultatTir() == "touché" :
+			 G[tour-1][x][y] = 1
+		 nettoyer()
+		 afficher(G[tour-1])
 		 print(tir.resultatTir())
-# Dans resultatTir on appelle les fonctions verifierEnVue, etatPosition et nbBateauxRestants
+		 time.sleep(5)
+		 #Dans resultatTir on appelle les fonctions verifierEnVue, etatPosition et nbBateauxRestants
 		 if tour == 1 :
-			tour += 1
-		 else:
-			tour -= 1
+			 tour += 1
+		 else :
+			 tour -= 1
 
+	nettoyer()
 	if(j1.nbBateauxRestants == 0):
-		print("Joueur 2 a gagne")
+		felicitation(2)
+
 	else:
-		print("Joueur 1 a gagne")
+		felicitation(2)
 
 main()
