@@ -8,10 +8,17 @@ from Bateau import *
 class Tir:
 	def __init__(self, coordA, coordB, joueur):
         #			int x int x Joueur --> Tir
-		self.coordA = coordA
-		self.coordB = coordB
 		self.joueur = joueur
-        
+		try:
+			if 0<=coordA and coordA<=20 and 0<=coordB and coordB<=20 :
+				self.coordA = coordA
+				self.coordB = coordB
+			else:
+				raise Exception("les coordonnees choisies")
+		except Exception as inst:
+			print("Erreur dans "+inst.args[0])
+			raise#Bloquer l'exécution
+
 	def resultatTir(self):
 	#			Tir --> str
 		for i in range(0,len(self.joueur.bateaux())): #Itere sur les bateaux du joueur
@@ -26,16 +33,16 @@ class Tir:
 						cpt = cpt + 1
 					if(isDead):
 						self.joueur.bateaux().pop(i)
-						return "coulé"
+						return "coule"
                         #coule
 					else:
-						return "touché"
+						return "touche"
                         #Touche
 				elif(self.joueur.bateaux()[i].positionBateau()[l][0] == self.coordA or self.joueur.bateaux()[i].positionBateau()[l][1] == self.coordB) :
 					return "en vue"
                     #En vue
 				else :
-					return "à l’eau"
+					return "a l eau"
                     #A l'eau
 
 
@@ -46,4 +53,3 @@ class Tir:
 				if((self.joueur.bateaux()[i].positionBateau()[l][0] == coordA and self.joueur.bateaux()[i].positionBateau()[l][1] != coordB) or (self.joueur.bateaux()[i].positionBateau()[l][1] == coordB and self.joueur.bateaux()[i].positionBateau()[l][0] != coordA)) :
 					return True
 		return False
-

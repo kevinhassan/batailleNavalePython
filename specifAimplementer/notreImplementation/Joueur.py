@@ -17,4 +17,11 @@ class Joueur:
 	#Remarques : - Créer Joueur est un constructeur ->
 	def __init__(self, tabB):
 	#			[Bateau](5) --> Joueur
-		self.__Bateaux = tabB
+		try:
+			if(len(tabB) == 5):
+				self.__Bateaux = tabB
+			else:
+				raise Exception("Le nombre de bateau du joueur est incorrect")
+		except Exception as inst:
+			print("Erreur "+ inst.args[0])
+			raise

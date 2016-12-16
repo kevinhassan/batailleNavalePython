@@ -8,22 +8,27 @@ class Bateau:
     #           il faut spécifier les préconditions sur les données
 	#			int x str x int x int --> Bateau
     def __init__(self,  longueur, orientation, coordX, coordY):
-        #verification de Longeur
-        if longueur>=1 and longueur<=4 :
-            self.longueur = longueur
-        else :
-            return "erreur"
-        #verification de l'orientation
-        if orientation=="verticale" or orientation=="horizontale" :
-            self.orientation = orientation
-        else :
-            return "erreur"
-        #verification des coordonnées
-        if 0<=coordX and coordX<=20 and 0<=coordY and coordY<=20 :
-            self.coordX = coordX
-            self.coordY = coordY
-        else:
-            return "erreur"
+
+        try:
+            #verification de l'orientation
+            if orientation=="verticale" or orientation=="horizontale" :
+                self.orientation = orientation
+            else :
+                raise Exception("l'orientation choisie")
+            #verification des coordonnées
+            if 0<=coordX and coordX<=20 and 0<=coordY and coordY<=20 :
+                self.coordX = coordX
+                self.coordY = coordY
+            else:
+                raise Exception("les coordonnees choisies")
+            if longueur>=1 and longueur<=4:
+                self.longueur = longueur
+            else:
+                raise Exception("longueur incorrecte")
+        except Exception as inst:
+            print("Erreur dans "+inst.args[0])
+            raise#Bloquer l'exécution
+
         #declaration et remplissage de la liste des positions
         self.positions = []
         if orientation == "verticale" :
