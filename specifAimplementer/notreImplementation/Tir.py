@@ -21,9 +21,10 @@ class Tir:
 
 	def resultatTir(self):
 	#			Tir --> str
+		result = ""
 		for i in range(0,len(self.joueur.bateaux())): #Itere sur les bateaux du joueur
 			for l in range(0,len(self.joueur.bateaux()[i].positionBateau())) : #Itere sur les positions du bateau courant
-				if(self.joueur.bateaux()[i].positionBateau()[l][0] == self.coordA and self.joueur.bateaux()[i].positionBateau()[l][1] == self.coordB and (not self.joueur.bateaux()[i].etatPosition()[l])) : #Si les coordonnées du tir concorde avec la position du bateaux et quelle n'est pas touche
+				if((self.joueur.bateaux()[i].positionBateau()[l][0] == self.coordA and self.joueur.bateaux()[i].positionBateau()[l][1] == self.coordB) and (not self.joueur.bateaux()[i].etatPosition()[l])) : #Si les coordonnées du tir concorde avec la position du bateaux et quelle n'est pas touche
 					self.joueur.bateaux()[i].etatPosition()[l] = True
 					isDead = True
 					cpt = 0
@@ -33,18 +34,19 @@ class Tir:
 						cpt = cpt + 1
 					if(isDead):
 						self.joueur.bateaux().pop(i)
-						return "coule"
+						return "coulé"
                         #coule
 					else:
-						return "touche"
+						return "touché"
                         #Touche
 				elif(self.joueur.bateaux()[i].positionBateau()[l][0] == self.coordA or self.joueur.bateaux()[i].positionBateau()[l][1] == self.coordB) :
-					return "en vue"
+					result = "en vue"
                     #En vue
 				else :
-					return "a l eau"
+					if(result != "en vue"):
+						result = "à l’eau"
                     #A l'eau
-
+		return result
 
 	def verifierEnVue(self):
 	#			Tir --> bool

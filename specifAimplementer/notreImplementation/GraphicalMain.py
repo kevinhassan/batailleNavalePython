@@ -115,19 +115,20 @@ def main():
 	#Boucle de jeu
 	while (j1.nbBateauxRestants() != 0) and (j2.nbBateauxRestants() != 0):
 		 nettoyer()
-		 print("Joueur" + str(tour + 1 ) +" "+ " choisit une position de tir")
+		 print("Joueur " + str(tour) +" "+ " choisit une position de tir")
 		 afficher(G[tour-1])
 		 x = input("Coordonnee x : ")
 		 y = input("Coordonnee y : ")
 		 if tour == 1:
-		 	tir = Tir(x,y,j1)
-		 else:
 		 	tir = Tir(x,y,j2)
-		 if tir.resultatTir() == "touché" :
+		 else:
+		 	tir = Tir(x,y,j1)
+		 result = tir.resultatTir()
+		 if result == "touché" :
 			 G[tour-1][x][y] = 1
 		 nettoyer()
 		 afficher(G[tour-1])
-		 print(tir.resultatTir())
+		 print(result)
 		 time.sleep(5)
 		 #Dans resultatTir on appelle les fonctions verifierEnVue, etatPosition et nbBateauxRestants
 		 if tour == 1 :

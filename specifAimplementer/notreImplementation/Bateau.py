@@ -33,10 +33,10 @@ class Bateau:
         self.positions = []
         if orientation == "verticale" :
             for i in range(0,longueur) :
-                self.positions.append([coordX + i,coordY])
+                self.positions.append([coordX,coordY + i])
         else :
             for i in range(0,longueur) :
-                self.positions.append([coordX,coordY + i])
+                self.positions.append([coordX + i,coordY])
         #declaration et remplissage de la liste des etats (False -> postion non touché)
         self.etats = []
         for i in range(0,longueur) :

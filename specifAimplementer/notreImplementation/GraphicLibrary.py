@@ -40,10 +40,10 @@ def Vide(M) :
 def ajoutMatrice(b,M) :
     if b.orientation == "verticale" :
         for i in range(0, b.longueur) :
-            M[i+b.coordX][b.coordY] = 1
+            M[b.coordX][b.coordY+i] = 1
     else :
         for i in range(0, b.longueur) :
-            M[b.coordX][i+b.coordY] = 1
+            M[b.coordX+i][b.coordY] = 1
 
 def afficher(M) :
     print("                           ")
@@ -59,10 +59,10 @@ def afficher(M) :
             print(" "+chr(i%10+48),end="")
         else :
             print(chr(i//10+48)+chr(i%10+48),end="")
-        for j in M[i] :
-            if j == 0 :
+        for j in range(0,len(M)) :
+            if M[j][i] == 0 :
                 print("░░░",end="")
-            elif j == 1 :
+            elif M[j][i] == 1 :
                 print("▓▓▓",end="")
     print("")
 
@@ -84,4 +84,4 @@ def felicitation(n) :
     print("                           ▒█▀▀▀ █▀▀ █░░ ░▀░ █▀▀ ░▀░ ▀▀█▀▀ █▀▀█ ▀▀█▀▀ ░▀░ █▀▀█ █▀▀▄ █▀▀ ")
     print("                           ▒█▀▀▀ █▀▀ █░░ ▀█▀ █░░ ▀█▀ ░░█░░ █▄▄█ ░░█░░ ▀█▀ █░░█ █░░█ ▀▀█  ")
     print("                           ▒█░░░ ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ░░▀░░ ▀░░▀ ░░▀░░ ▀▀▀ ▀▀▀▀ ▀░░▀ ▀▀▀ ")
-    print("                                                  Joueur "+n+" a gagné !")
+    print("                                                  Joueur "+str(n)+" a gagné !")
