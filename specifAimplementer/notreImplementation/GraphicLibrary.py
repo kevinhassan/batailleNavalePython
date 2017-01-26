@@ -61,9 +61,9 @@ def afficher(M) :
             print(chr(i//10+48)+chr(i%10+48),end="")
         for j in range(0,len(M)) :
             if M[j][i] == 0 :
-                print("░░░",end="")
+                print("\033[92m░░░\033[0m",end="")
             elif M[j][i] == 1 :
-                print("▓▓▓",end="")
+                print("\033[93m▓▓▓\033[0m",end="")
     print("")
 
 def afficherTitre() :

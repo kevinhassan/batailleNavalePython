@@ -129,7 +129,7 @@ def main():
 		 nettoyer()
 		 afficher(G[tour-1])
 		 print(result)
-		 time.sleep(5)
+		 time.sleep(2)
 		 #Dans resultatTir on appelle les fonctions verifierEnVue, etatPosition et nbBateauxRestants
 		 if tour == 1 :
 			 tour += 1
