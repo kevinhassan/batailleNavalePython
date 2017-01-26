@@ -124,7 +124,7 @@ def main():
 		 else:
 		 	tir = Tir(x,y,j1)
 		 result = tir.resultatTir()
-		 if result == "touché" or result == "coulé" ":
+		 if result == "touché" or result == "coulé" :
 			 G[tour-1][x][y] = 1
 		 nettoyer()
 		 afficher(G[tour-1])

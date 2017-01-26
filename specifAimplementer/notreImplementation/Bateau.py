@@ -33,10 +33,18 @@ class Bateau:
         self.positions = []
         if orientation == "verticale" :
             for i in range(0,longueur) :
-                self.positions.append([coordX,coordY + i])
+                if (coordY + i ) <= 20 :
+                    self.positions.append([coordX,coordY + i])
+                else :
+                    raise Exception("Dépassement de la grille")
+
         else :
             for i in range(0,longueur) :
-                self.positions.append([coordX + i,coordY])
+                if (coordX + i) <= 20 :
+                    self.positions.append([coordX + i,coordY])
+                else :
+                    raise Exception("Dépassement de la grille")
+
         #declaration et remplissage de la liste des etats (False -> postion non touché)
         self.etats = []
         for i in range(0,longueur) :
